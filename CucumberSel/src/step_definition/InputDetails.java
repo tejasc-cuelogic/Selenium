@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 public class InputDetails {
 
-	String url="https://admin-stg.travelpass.com";
+	String url="";
 	Users creates=new Users(); 
 	
 	Appdriver intdriver = new Appdriver();
@@ -54,8 +54,8 @@ public class InputDetails {
     public void enter_Usernamepwd() throws Exception 
     {
    
-    	creates.txt_username(d).sendKeys("sandra.john@cuelogic.co.in");
-    	creates.txt_password(d).sendKeys("cuelogic!");
+    	creates.txt_username(d).sendKeys("");
+    	creates.txt_password(d).sendKeys("");
     	d.findElement(By.name("commit")).click();
     	Thread.sleep(10000);
     	if(d.findElement(By.xpath("/html/body/div[3]/div[2]/div/div[1]/div/div")).getText().contains("Home"))
@@ -85,16 +85,16 @@ public class InputDetails {
     @When("^Enter valid details in all fields$")
     public void create_user() throws Exception
     {
-    	creates.txt_first_name(d).sendKeys("travelprashant");
-    	creates.txt_last_name(d).sendKeys("travelprashants");
-    	creates.txt_email(d).sendKeys("chaudharitejas986@yahoo.com");
-    	creates.txt_password(d).sendKeys("tejas789@");
-    	creates.txt_confirm_password(d).sendKeys("tejas789@");
-    	creates.drpdwn_Org(d).selectByVisibleText("Allied Globals");
+    	creates.txt_first_name(d).sendKeys("");
+    	creates.txt_last_name(d).sendKeys("");
+    	creates.txt_email(d).sendKeys("");
+    	creates.txt_password(d).sendKeys("@");
+    	creates.txt_confirm_password(d).sendKeys("@");
+    	creates.drpdwn_Org(d).selectByVisibleText("");
     	Thread.sleep(2000);
-    	creates.drpdwn_loc(d).selectByVisibleText("Belize City, Belize");
+    	creates.drpdwn_loc(d).selectByVisibleText("");
     	Thread.sleep(2000);
-    	creates.drpdwn_grp(d).selectByVisibleText("Manager One");
+    	creates.drpdwn_grp(d).selectByVisibleText("");
     	Thread.sleep(2000);
  	
     	creates.drpdwn_assigned(d).selectByVisibleText("Super Man");	
@@ -104,7 +104,7 @@ public class InputDetails {
     	
     public void invalid_input()throws Exception
     {
-    	creates.txt_first_name(d).sendKeys("tejas@123");
+    	creates.txt_first_name(d).sendKeys("");
     	creates.btn_create(d).click();
     }
     
