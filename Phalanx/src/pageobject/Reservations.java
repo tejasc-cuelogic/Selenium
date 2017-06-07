@@ -140,7 +140,26 @@ public class Reservations {
 	  
   }
   
-  
+	public String success_message_text(WebDriver driver) throws Exception {
+		try 
+		{
+			message = driver.findElement(By.xpath("//h4[contains(.,'No records found!')]")).getText();
+			System.out.println("message found");
+		
+		} 
+		
+		catch (Exception e)
+		{
+			System.out.println("message not found");
+			throw e;
+		}
+		return message;
+	}
+
+	
+	
+	
+	
   
   
 }

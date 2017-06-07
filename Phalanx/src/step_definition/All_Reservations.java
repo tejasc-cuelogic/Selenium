@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import driverinit.Appdriver;
 import pageobject.Reservations;
@@ -81,22 +82,41 @@ String url= "https://admin-stg.travelpass.com";
     @When("^Enter input and click on search$")
     public void search_reser()throws Exception
     {
-    	Res.txt_name(driver).sendKeys("Test Booking	");
+    	Res.txt_name(driver).sendKeys("Test");
     	
     	Res.txt_email(driver).sendKeys("gopalk@iprogrammer.com");
     	
     	Res.drp_provider(driver).selectByVisibleText("Bdc");
     	
     	Res.btn_search(driver).click();
+    	
+    	Thread.sleep(6000);
     	System.out.println("Clicked on search");
-    	
-   
-    	
     	
     }
     
-     
-    
+    @Then("^Application should display success message$")
+    public void record_msg()throws Exception
+    {
+    	try
+    	{
+    		if(Res.success_message_text(driver).contains("No records found!"))
+    		{
+    			System.out.println("No Record Found");
+    		}
+    		else
+    		{
+    			System.out.println("Record Found");
+    		}
+    		
+    	}
+    	
+    	catch(Exception e)
+    	{
+    		throw e;
+    	}
+    	
+    }
 
 
 }
